@@ -1,0 +1,72 @@
+.flex-div img{
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+nav{
+    height: 56px;
+    padding: 10px 2%;
+    justify-content: space-between;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    background-color: #212121;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.nav-left .menu{
+    width: 22px;
+    margin-right: 25px;
+    font-size: 24px;
+}
+.nav-left{
+    position: relative;
+}
+.nav-left p{
+    position: absolute;
+    right: -10px;
+    top: -1px;
+    font-size: 0.6rem;
+    cursor: pointer;
+}
+.nav-left h3{
+    cursor: pointer;
+}
+
+.nav-middle{
+    width: 30vw;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 50px;
+    overflow: hidden;
+    background-color: #222222;
+    border: 1px solid #434343;
+}
+.nav-middle input{
+    width: 90%;
+    height: 100%;
+    padding-left: 15px;
+    padding-right: 5px;
+    font-size: 0.9rem;
+    background-color: #121212;
+    border: none;
+    outline: none;
+    color: white;
+}
+.search-icon{
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.nav-right{
+    gap: 1.5rem;
+    font-size: 24px;
+}
+.microphone{
+    padding: 0.75rem;
+    background-color: #3d3d3d;
+    border-radius: 50px;
+    margin-left: .7rem;
+}

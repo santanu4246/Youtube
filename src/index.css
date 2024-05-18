@@ -2,5 +2,16 @@
 margin:0;
 padding:0;
 box-sizing:boder-box;
+font-family: sans-serif;
+color: white;
 }
-
+body{
+    background-color: #212121;
+}
+a{
+    text-decoration: none;
+}
+.flex-div{
+    display: flex;
+    align-items: center;
+}
