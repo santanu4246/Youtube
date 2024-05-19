@@ -8,11 +8,12 @@ import { MdOutlineVideoCall } from "react-icons/md";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { FaUser } from "react-icons/fa";
 import { FaMicrophone } from "react-icons/fa";
-const Navbar = () => {
+
+const Navbar = ({setSidebar}) => {
   return (
    <nav className='flex-div'>
     <div className="nav-left flex-div">
-      <AiOutlineMenu className='menu'/>
+      <AiOutlineMenu className='menu' onClick={()=>setSidebar(prev=>prev===false?true:false)}/>
       <Link to='/' className='flex-div'>
       <img src={youtubelogo} alt="" />
       <h3>YouTube</h3>
