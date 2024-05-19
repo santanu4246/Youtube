@@ -13,6 +13,7 @@ nav{
     position: sticky;
     top: 0;
     z-index: 10;
+    overflow-x: hidden;
 }
 .nav-left .menu{
     width: 22px;

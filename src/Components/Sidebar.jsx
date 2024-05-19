@@ -27,14 +27,23 @@ import setting from "../assets/setting.svg";
 import report from "../assets/report.svg";
 import help from "../assets/help.svg";
 import send from "../assets/send.svg";
+
 import './Sidebar.css'
+ 
 
 const Sidebar = ({Sidebar}) => {
   React.useEffect(() => {
+    const sidebar = document.querySelector('.sidebar-container');
     if (Sidebar) {
       document.querySelector('.sidebar').style.display = "block";
       document.querySelector('.smallsidebar').style.display = "none";
-      document.querySelector('.sidebar-container').style.overflowY = "scroll";
+      sidebar.addEventListener("mouseenter",()=>{
+        document.querySelector('.sidebar-container').style.overflowY = "scroll";
+      })
+      sidebar.addEventListener("mouseleave",()=>{
+        document.querySelector('.sidebar-container').style.overflowY = "hidden";
+      })
+      
     } else {
       document.querySelector('.sidebar').style.display = "none";
       document.querySelector('.smallsidebar').style.display = "block";
