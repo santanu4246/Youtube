@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { IoMdHome } from "react-icons/io";
-import { SiYoutubeshorts } from "react-icons/si";
-import { MdOutlineSubscriptions } from "react-icons/md";
+import homeicon from "../assets/home.svg";
+import shortsicon from "../assets/shorts.svg";
+import subscription from "../assets/subscription.svg";
 import you from '../assets/you.svg'
 import history from '../assets/history.svg'
 import playlist from "../assets/playlists.svg";
@@ -29,21 +29,32 @@ import help from "../assets/help.svg";
 import send from "../assets/send.svg";
 import './Sidebar.css'
 
-const Sidebar = () => {
+const Sidebar = ({Sidebar}) => {
+  React.useEffect(() => {
+    if (Sidebar) {
+      document.querySelector('.sidebar').style.display = "block";
+      document.querySelector('.smallsidebar').style.display = "none";
+      document.querySelector('.sidebar-container').style.overflowY = "scroll";
+    } else {
+      document.querySelector('.sidebar').style.display = "none";
+      document.querySelector('.smallsidebar').style.display = "block";
+      document.querySelector('.sidebar-container').style.overflow = "hidden";
+    }
+  }, [Sidebar]);
   return (
     <div className="sidebar-container">
       <div className="sidebar">
         <div className="sidebar-icons">
-          <div className='icons'>
-            <IoMdHome />
+          <div className='toggle-sidebar-icons top3-icons'>
+          <img src={homeicon} alt="" className='filter'/>
             <p>Home</p>
           </div>
-          <div className='icons'>
-            <SiYoutubeshorts />
+          <div className='toggle-sidebar-icons top3-icons'>
+          <img src={shortsicon} alt="" className='filter'/>
             <p>Shorts</p>
           </div>
-          <div className='icons'>
-            <MdOutlineSubscriptions />
+          <div className='toggle-sidebar-icons top3-icons'>
+          <img src={subscription} alt="" className='filter'/>
             <p>Subscription</p>
           </div>
           <div className="line"></div>
@@ -73,7 +84,6 @@ const Sidebar = () => {
               <p>likedvideos</p>
             </div>
             <div className="line"></div>
-
             <div className="toggle-sidebar-icons">
               <img src={trending} alt="" className='filter'/>
               <p>trending</p>
@@ -163,6 +173,21 @@ const Sidebar = () => {
               <p>send feedback</p>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="smallsidebar">
+        <div className="icons">
+          <img src={homeicon} alt="" className='filter'/>
+          <p>home</p>
+        </div>
+        <div className="icons">
+          <img src={shortsicon} alt="" className='filter'/>
+          <p>shorts</p>
+        </div>
+        <div className="icons">
+          <img src={subscription} alt="" className='filter'/>
+          <p>subscription</p>
         </div>
       </div>
     </div>

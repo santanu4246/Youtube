@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import Sidebar from './Components/Sidebar';
 import Video from './Pages/Video/Video'
+import './App.css'
 const App = () => {
   const [sidebar,setSidebar] = useState(true)
   return (
