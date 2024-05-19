@@ -3,8 +3,8 @@
 {
 
     height: 92vh;
-    width: 200px;
     overflow-y: hidden;
+    width: 200px;
 }
 body{
     overflow: hidden;
@@ -15,6 +15,7 @@ body{
     align-items: flex-start;
     background-color: #0f0f0f;
     padding-bottom: 1rem;
+   
     /* margin-top: 56px; */
 }
 .sidebar-container::-webkit-scrollbar{

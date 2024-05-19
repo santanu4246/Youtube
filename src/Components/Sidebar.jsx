@@ -29,25 +29,32 @@ import help from "../assets/help.svg";
 import send from "../assets/send.svg";
 
 import './Sidebar.css'
- 
 
-const Sidebar = ({Sidebar}) => {
+
+const Sidebar = ({ Sidebar }) => {
   React.useEffect(() => {
     const sidebar = document.querySelector('.sidebar-container');
     if (Sidebar) {
       document.querySelector('.sidebar').style.display = "block";
       document.querySelector('.smallsidebar').style.display = "none";
-      sidebar.addEventListener("mouseenter",()=>{
+      sidebar.addEventListener("mouseenter", () => {
         document.querySelector('.sidebar-container').style.overflowY = "scroll";
       })
-      sidebar.addEventListener("mouseleave",()=>{
+      sidebar.addEventListener("mouseleave", () => {
         document.querySelector('.sidebar-container').style.overflowY = "hidden";
       })
-      
+      document.querySelector('.sidebar-container').style.width = "200px";
     } else {
       document.querySelector('.sidebar').style.display = "none";
       document.querySelector('.smallsidebar').style.display = "block";
-      document.querySelector('.sidebar-container').style.overflow = "hidden";
+      document.querySelector('.sidebar-container').style.overflowY = "hidden";
+      document.querySelector('.sidebar-container').style.width = "60px";
+      sidebar.addEventListener("mouseenter", () => {
+        document.querySelector('.sidebar-container').style.overflowY = "hidden";
+      })
+      sidebar.addEventListener("mouseleave", () => {
+        document.querySelector('.sidebar-container').style.overflowY = "hidden";
+      })
     }
   }, [Sidebar]);
   return (
@@ -55,62 +62,62 @@ const Sidebar = ({Sidebar}) => {
       <div className="sidebar">
         <div className="sidebar-icons">
           <div className='toggle-sidebar-icons top3-icons'>
-          <img src={homeicon} alt="" className='filter'/>
+            <img src={homeicon} alt="" className='filter' />
             <p>Home</p>
           </div>
           <div className='toggle-sidebar-icons top3-icons'>
-          <img src={shortsicon} alt="" className='filter'/>
+            <img src={shortsicon} alt="" className='filter' />
             <p>Shorts</p>
           </div>
           <div className='toggle-sidebar-icons top3-icons'>
-          <img src={subscription} alt="" className='filter'/>
+            <img src={subscription} alt="" className='filter' />
             <p>Subscription</p>
           </div>
           <div className="line"></div>
           <div className='toggle-sidebar'>
             <div className="toggle-sidebar-icons">
-              <img src={you} alt="" className='filter'/>
+              <img src={you} alt="" className='filter' />
               <p>Your Channel</p>
             </div>
             <div className="toggle-sidebar-icons">
-              <img src={history} alt="" className='filter'/>
+              <img src={history} alt="" className='filter' />
               <p>History</p>
             </div>
             <div className="toggle-sidebar-icons">
-              <img src={playlist} alt="" className='filter'/>
+              <img src={playlist} alt="" className='filter' />
               <p>Playlist</p>
             </div>
             <div className="toggle-sidebar-icons">
-              <img src={yourvideos} alt="" className='filter'/>
+              <img src={yourvideos} alt="" className='filter' />
               <p>yourvideos</p>
             </div>
             <div className="toggle-sidebar-icons">
-              <img src={watchlater} alt="" className='filter'/>
+              <img src={watchlater} alt="" className='filter' />
               <p>watchlater</p>
             </div>
             <div className="toggle-sidebar-icons">
-              <img src={likedvideos} alt="" className='filter'/>
+              <img src={likedvideos} alt="" className='filter' />
               <p>likedvideos</p>
             </div>
             <div className="line"></div>
             <div className="toggle-sidebar-icons">
-              <img src={trending} alt="" className='filter'/>
+              <img src={trending} alt="" className='filter' />
               <p>trending</p>
             </div>
             <div className="toggle-sidebar-icons">
-              <img src={shopping} alt="" className='filter'/>
+              <img src={shopping} alt="" className='filter' />
               <p>shopping</p>
             </div>
             <div className="toggle-sidebar-icons">
-              <img src={music} alt="" className='filter'/>
+              <img src={music} alt="" className='filter' />
               <p>music</p>
             </div>
             <div className="toggle-sidebar-icons">
-              <img src={movies} alt="" className='filter'/>
+              <img src={movies} alt="" className='filter' />
               <p>movies</p>
             </div>
             <div className="toggle-sidebar-icons">
-              <img src={live} alt="" className='filter'/>
+              <img src={live} alt="" className='filter' />
               <p>live</p>
             </div>
             <div className="toggle-sidebar-icons">
@@ -118,23 +125,23 @@ const Sidebar = ({Sidebar}) => {
               <p>gaming</p>
             </div>
             <div className="toggle-sidebar-icons">
-              <img src={news} alt="" className='filter'/>
+              <img src={news} alt="" className='filter' />
               <p>news</p>
             </div>
             <div className="toggle-sidebar-icons">
-              <img src={courses} alt="" className='filter'/>
+              <img src={courses} alt="" className='filter' />
               <p>courses</p>
             </div>
             <div className="toggle-sidebar-icons">
-              <img src={sports} alt="" className='filter'/>
+              <img src={sports} alt="" className='filter' />
               <p>sport</p>
             </div>
             <div className="toggle-sidebar-icons">
-              <img src={fashion} alt="" className='filter'/>
+              <img src={fashion} alt="" className='filter' />
               <p>fashion & Beauty</p>
             </div>
             <div className="toggle-sidebar-icons">
-              <img src={podcasts} alt="" className='filter'/>
+              <img src={podcasts} alt="" className='filter' />
               <p>podcasts</p>
             </div>
 
@@ -147,7 +154,7 @@ const Sidebar = ({Sidebar}) => {
             </div>
 
             <div className="toggle-sidebar-icons">
-              <img src={ytstudio} alt="" className='toggle-icons'/>
+              <img src={ytstudio} alt="" className='toggle-icons' />
               <p>youtube studio</p>
             </div>
 
@@ -157,7 +164,7 @@ const Sidebar = ({Sidebar}) => {
             </div>
 
             <div className="toggle-sidebar-icons">
-              <img src={ytkids} alt="" className='toggle-icons'/>
+              <img src={ytkids} alt="" className='toggle-icons' />
               <p>youtube kids</p>
             </div>
 
@@ -168,17 +175,17 @@ const Sidebar = ({Sidebar}) => {
             </div>
 
             <div className="toggle-sidebar-icons">
-              <img src={report} alt="" className='filter'/>
+              <img src={report} alt="" className='filter' />
               <p>report history</p>
             </div>
 
             <div className="toggle-sidebar-icons">
-              <img src={help} alt="" className='filter'/>
+              <img src={help} alt="" className='filter' />
               <p>help</p>
             </div>
 
             <div className="toggle-sidebar-icons">
-              <img src={send} alt="" className='toggle-icons filter'/>
+              <img src={send} alt="" className='toggle-icons filter' />
               <p>send feedback</p>
             </div>
           </div>
@@ -187,15 +194,15 @@ const Sidebar = ({Sidebar}) => {
 
       <div className="smallsidebar">
         <div className="icons">
-          <img src={homeicon} alt="" className='filter'/>
+          <img src={homeicon} alt="" className='filter' />
           <p>home</p>
         </div>
         <div className="icons">
-          <img src={shortsicon} alt="" className='filter'/>
+          <img src={shortsicon} alt="" className='filter' />
           <p>shorts</p>
         </div>
         <div className="icons">
-          <img src={subscription} alt="" className='filter'/>
+          <img src={subscription} alt="" className='filter' />
           <p>subscription</p>
         </div>
       </div>
