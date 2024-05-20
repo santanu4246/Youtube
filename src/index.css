@@ -6,7 +6,8 @@ font-family: sans-serif;
 color: white;
 }
 body{
-    background-color: #212121;
+    background-color: #0f0f0f;
+    overflow: hidden;
 }
 a{
     text-decoration: none;

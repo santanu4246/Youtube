@@ -1,37 +1,41 @@
-
-.sidebar-container
-{
+.sidebar-container {
 
     height: 92vh;
     overflow-y: hidden;
     width: 200px;
+    /* z-index: 10; */
 }
-body{
+
+body {
     overflow: hidden;
 }
+
 .sidebar {
     height: auto;
     display: flex;
     align-items: flex-start;
     background-color: #0f0f0f;
     padding-bottom: 1rem;
-   
     /* margin-top: 56px; */
+    
 }
-.sidebar-container::-webkit-scrollbar{
+
+.sidebar-container::-webkit-scrollbar {
     background-color: #0f0f0f;
     width: 5px;
 }
-.sidebar-container::-webkit-scrollbar-thumb{
+
+.sidebar-container::-webkit-scrollbar-thumb {
     background-color: #3F3F3F;
     border-radius: 10px;
 }
-.sidebar-container::-webkit-scrollbar-button{
-    fill: red;
-    
-} 
 
- .sidebar-container::-webkit-scrollbar-button:single-button:vertical:decrement {
+.sidebar-container::-webkit-scrollbar-button {
+    fill: red;
+
+}
+
+.sidebar-container::-webkit-scrollbar-button:single-button:vertical:decrement {
     background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: white;transform: ;msFilter:;"><path d="m6.293 13.293 1.414 1.414L12 10.414l4.293 4.293 1.414-1.414L12 7.586z"></path></svg>') no-repeat center;
 }
 
@@ -50,33 +54,38 @@ body{
     display: flex;
     flex-direction: column;
     gap: 1rem;
- 
+
 }
+
 .filter {
     filter: invert();
 }
+
 p {
     font-size: 0.85rem;
     font-weight: 600;
     margin-left: 1rem;
     text-transform: capitalize;
 }
-.toggle-sidebar-icons{
+
+.toggle-sidebar-icons {
     display: flex;
     gap: 0.5rem;
     align-items: center;
     margin-left: 1rem;
 }
-.line{
+
+.line {
     width: 100%;
     border-bottom: 1px solid #3F3F3F;
 }
-.toggle-icons{
+
+.toggle-icons {
     height: 24px;
     width: 24px;
 }
 
-.smallsidebar{
+.smallsidebar {
     height: 100%;
     background-color: #0f0f0f;
     width: 60px;
@@ -84,14 +93,36 @@ p {
     flex-direction: column;
     align-items: center;
 }
-.smallsidebar p{
+
+.smallsidebar p {
     margin: 0;
     font-size: 0.6rem;
 }
-.icons{
+
+.icons {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.75rem;
     padding-bottom: 1rem;
 }
+.main{
+    display: flex;
+}
+.homeContainer{
+    width: calc(100vw - 200px);
+}
+@media only screen and (max-width:768px) {
+    .sidebar-container{
+        position: absolute;
+        display: initial;
+    }
+    .smallsidebar{
+        display: none;
+    }
+}
+/* @media only screen and (max-width>768px){
+.sidebar{
+    display: initial;
+}
+} */

@@ -20,7 +20,6 @@ const Navbar = ({setSidebar}) => {
       <p>IN</p>
       </Link>
     </div>
-
     <div className="wrapper flex-div">
     <div className="nav-middle flex-div">
       <input type="text" placeholder='Search'/>
