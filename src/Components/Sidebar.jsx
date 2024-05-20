@@ -31,7 +31,6 @@ import './Sidebar.css'
 import Feed from './Feed';
 const Sidebar = ({ Sidebar }) => {
   useEffect(() => {
-    const sidebar = document.querySelector('.sidebar-container');
     var x = window.matchMedia("(max-width: 768px)");
     console.log(!x.matches);
     if(!x.matches)
@@ -52,7 +51,6 @@ const Sidebar = ({ Sidebar }) => {
       }
     }
     else{
-      document.querySelector('.smallsidebar').style.display="none";
       if (Sidebar){
         document.querySelector('.sidebar').style.display = "block";
         document.querySelector('.smallsidebar').style.display = "none";
@@ -63,10 +61,8 @@ const Sidebar = ({ Sidebar }) => {
       else{
         document.querySelector('.sidebar').style.display = "none";
         document.querySelector('.homeContainer').style.width="100vw";
-
       }
     }
-   
   }, [Sidebar]);
 
   return (
