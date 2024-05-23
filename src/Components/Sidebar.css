@@ -111,20 +111,20 @@ p {
 }
 .homeContainer{
     width: calc(100vw - 200px);
+    overflow-x: hidden;
 }
 @media only screen and (max-width:768px) {
     .sidebar-container{
         position: absolute;
+       
     }
-    .sidebar-container{
+    /* .sidebar-container{
         width: 200px !important;
+    } */
+    .sidebar{
+        margin-bottom: 1rem;
     }
     .smallsidebar{
         display: none !important;
-    }
-}
-@media only screen and (max-width>768px){
-    .sidebar{
-        display: block !important;
     }
 }
