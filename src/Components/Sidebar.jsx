@@ -29,46 +29,67 @@ import help from "../assets/help.svg";
 import send from "../assets/send.svg";
 import './Sidebar.css'
 import Feed from './Feed';
-const Sidebar = ({ Sidebar }) => {
-  useEffect(() => {
-    var x = window.matchMedia("(max-width: 768px)");
-    console.log(!x.matches);
-    if(!x.matches)
-      {
-      if (Sidebar){
-        document.querySelector('.sidebar').style.display = "block";
-        document.querySelector('.sidebar-container').style.display = "block";
-        document.querySelector('.smallsidebar').style.display = "none";
-        document.querySelector('.sidebar-container').style.overflowY = "scroll";
-        document.querySelector('.sidebar-container').style.width = "200px";
-        document.querySelector('.homeContainer').style.width = "calc(100vw - 200px)";
-      } else {
-        document.querySelector('.sidebar').style.display = "none";
-        document.querySelector('.smallsidebar').style.display = "block";
-        document.querySelector('.sidebar-container').style.overflowY = "hidden";
-        document.querySelector('.sidebar-container').style.width = "60px";
-        document.querySelector('.sidebar-container').style.overflowY = "hidden";
-        document.querySelector('.homeContainer').style.width = "calc(100vw - 60px)";
-      }
-    }
-    else{
-      if (Sidebar){
-        document.querySelector('.sidebar-container').style.display = "block";
-        document.querySelector('.sidebar-container').style.height = "100vh";
-        document.querySelector('.smallsidebar').style.display = "none";
-        document.querySelector('.sidebar-container').style.overflowY = "scroll";
-        document.querySelector('.sidebar-container').style.width = "200px";
-        document.querySelector('.homeContainer').style.width="100vw";
-        document.querySelector('.sidebar').style.display = "block";
-      }
-      else{
-        document.querySelector('.sidebar-container').style.display = "none";
-        document.querySelector('.homeContainer').style.width="100%";
-        document.querySelector('.sidebar-container').style.overflowY = "hidden";
-      }
-    }
-  }, [Sidebar]);
 
+const Sidebar = ({ Sidebar }) => {
+
+  useEffect(() => {
+    const updateLayout = () => {
+      const sidebarContainer = document.querySelector('.sidebar-container');
+      const sidebar = document.querySelector('.sidebar');
+      const smallSidebar = document.querySelector('.smallsidebar');
+      const homeContainer = document.querySelector('.homeContainer');
+
+      if (!sidebarContainer || !sidebar || !smallSidebar || !homeContainer) {
+        console.error("One or more elements are not found in the DOM");
+        return;
+      }
+
+      if (window.innerWidth >= 768) {
+        sidebarContainer.style.display = "block";
+        sidebarContainer.style.height = "92vh";
+      }
+
+      const x = window.matchMedia("(max-width: 768px)");
+      if (!x.matches) {
+        if (Sidebar) {
+          sidebar.style.display = "block";
+          sidebarContainer.style.display = "block";
+          smallSidebar.style.display = "none";
+          sidebarContainer.style.overflowY = "scroll";
+          sidebarContainer.style.width = "200px";
+          homeContainer.style.width = "calc(100vw - 200px)";
+        } else {
+          sidebar.style.display = "none";
+          smallSidebar.style.display = "block";
+          sidebarContainer.style.overflowY = "hidden";
+          sidebarContainer.style.width = "60px";
+          homeContainer.style.width = "calc(100vw - 60px)";
+        }
+      } else {
+        if (Sidebar) {
+          sidebarContainer.style.display = "block";
+          sidebarContainer.style.height = "92vh";
+          smallSidebar.style.display = "none";
+          sidebarContainer.style.overflowY = "scroll";
+          sidebarContainer.style.width = "200px";
+          homeContainer.style.width = "100vw";
+          sidebar.style.display = "block";
+        } else {
+          sidebarContainer.style.display = "none";
+          homeContainer.style.width = "100%";
+          sidebarContainer.style.overflowY = "hidden";
+        }
+      }
+    };
+
+    updateLayout();
+    window.addEventListener('resize', updateLayout);
+
+    return () => {
+      window.removeEventListener('resize', updateLayout);
+    };
+
+  }, [Sidebar]);
   return (
     <div className="main">
       <div className="sidebar-container">

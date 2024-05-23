@@ -6,7 +6,7 @@
 
 nav{
     height: 56px;
-    padding: 10px 1rem;
+    padding: 10px 1.5rem;
     justify-content: space-between;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     background-color: #0f0f0f;
@@ -35,7 +35,7 @@ nav{
 }
 
 .nav-middle{
-    width: 30vw;
+    width: 31vw;
     height: 40px;
     display: flex;
     align-items: center;

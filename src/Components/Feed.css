@@ -2,23 +2,42 @@
     padding: 10px 0;
     overflow-y: auto;
     height: calc(100vh - 56px);
-    padding-left: 3rem;
+    cursor: pointer;
 }
-/* .cards{
+.cards{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    row-gap: 10px;
-} */
-/* .card{
-    height: 232px;
+    align-items: center;
+    gap: 1rem;
+}
+.card{
     width: 310px;
     cursor: pointer;
-    border: 1px solid red;
     background-color: #0F0F0F;
-    
-} */
-.cards{
+    border-radius: 10px;
+    z-index: -11;
+}
+.card-main::-webkit-scrollbar {
+    width: 15px;
+   
+  }
+  
+  .card-main::-webkit-scrollbar-track {
+    background: #0F0F0F; /* Black */
+  }
+  
+
+  .card-main::-webkit-scrollbar-thumb {
+    background: #cecdcd; /* Dark gray */
+    height: 200px;
+  }
+  
+  /* Define scrollbar thumb on hover color */
+  .card-main::-webkit-scrollbar-thumb:hover {
+    background: #7b7b7b; /* Light gray */
+  }
+/* .cards{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(200px,310px));
     grid-auto-rows: 300px;
@@ -31,14 +50,35 @@
     height: 100%;
     width: 100%;
     cursor: pointer;
-    /* border: 1px solid red; */
     background-color: #0F0F0F;
- 
-}
+} */
 .card img{
-object-fit: cover;
+object-fit: contain;
 width: 100%;
 border-radius: 10px;
+}
+.video-bottom{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.video-bottom p:nth-child(2)
+{
+    opacity: 0.7;
+    font-weight: 400;
+    font-size: 0.75rem;
+}
+.div p{
+    opacity: 0.7;
+    font-weight: 400;
+    font-size: 0.75rem;
+    padding-top: 7px;
+}
+.div{
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: auto;
 }
 @media (max-width:768px){
     .card-main{

@@ -4,6 +4,7 @@
     overflow-y: hidden;
     width: 200px;
     /* z-index: 10; */
+    
 }
 
 body {
@@ -54,7 +55,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-
 }
 
 .filter {
@@ -66,15 +66,24 @@ p {
     font-weight: 600;
     margin-left: 1rem;
     text-transform: capitalize;
+    cursor: pointer;
 }
 
 .toggle-sidebar-icons {
     display: flex;
     gap: 0.5rem;
+    padding: 5px 10px;
+    border-radius: 10px;
     align-items: center;
     margin-left: 1rem;
+    cursor: pointer;
+    width: 77%;
+    transition: all 0.3s ease-in;
 }
-
+.toggle-sidebar-icons:hover{
+    background-color: #3F3F3F;
+    border-radius: 10px;
+}
 .line {
     width: 100%;
     border-bottom: 1px solid #3F3F3F;
@@ -92,6 +101,7 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .smallsidebar p {
@@ -106,6 +116,10 @@ p {
     gap: 0.75rem;
     padding-bottom: 1rem;
 }
+.icons:hover{
+    background-color: #3F3F3F;
+    border-radius: 5px;
+}
 .main{
     display: flex;
 }
@@ -113,16 +127,16 @@ p {
     width: calc(100vw - 200px);
     overflow-x: hidden;
 }
-@media only screen and (max-width:768px) {
+
+@media only screen and (max-width:768px){
     .sidebar-container{
-        position: absolute;
-       
+        position: absolute !important;
     }
     /* .sidebar-container{
         width: 200px !important;
     } */
     .sidebar{
-        margin-bottom: 1rem;
+        padding-bottom: 2rem;
     }
     .smallsidebar{
         display: none !important;
