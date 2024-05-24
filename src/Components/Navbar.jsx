@@ -30,6 +30,12 @@ const Navbar = ({ setSidebar }) => {
     } else {
       handleMiniNav();
     }
+
+    window.addEventListener('resize', handleNav);
+
+    return () => {
+      window.removeEventListener('resize', handleNav);
+    };
   }, [mininav]);
 
   const handleInputChange = (e) => {
