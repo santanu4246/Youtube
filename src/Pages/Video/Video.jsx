@@ -89,7 +89,7 @@ const Video = () => {
               <h3>{apiData.snippet.title}</h3>
               <div className="othervideo">
                 <div className="name-subscribe">
-                  <h4>{apiData.snippet.channelTitle}</h4>
+                  <h5 className='channlename'>{apiData.snippet.channelTitle}</h5>
                   <p>Subscribe</p>
                 </div>
                 <div className="tools">
