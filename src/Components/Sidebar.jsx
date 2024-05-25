@@ -1,4 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useNavigate,
+} from "react-router-dom";
 import homeicon from "../assets/home.svg";
 import shortsicon from "../assets/shorts.svg";
 import subscription from "../assets/subscription.svg";
@@ -29,7 +35,7 @@ import help from "../assets/help.svg";
 import send from "../assets/send.svg";
 import './Sidebar.css'
 import Feed from './Feed';
-
+import Video from '../Pages/Video/Video';
 const Sidebar = ({ Sidebar }) => {
 
   useEffect(() => {
@@ -93,7 +99,7 @@ const Sidebar = ({ Sidebar }) => {
   return (
     <div className="main">
       <div className="sidebar-container">
-        <div className="sidebar">
+        <div className="sidebar" >
           <div className="sidebar-icons">
             <div className='toggle-sidebar-icons top3-icons'>
               <img src={homeicon} alt="" className='filter' />
@@ -226,7 +232,7 @@ const Sidebar = ({ Sidebar }) => {
           </div>
         </div>
 
-        <div className="smallsidebar">
+        <div className="smallsidebar" >
           <div className="icons">
             <img src={homeicon} alt="" className='filter' />
             <p>home</p>
@@ -242,10 +248,16 @@ const Sidebar = ({ Sidebar }) => {
         </div>
       </div>
       <div className="homeContainer">
-        <Feed sidebar={Sidebar} />
+        <Routes>
+          <Route
+            path="/"
+            element={<Feed />}
+          />
+          <Route path="/video/:id" element={<Video />} />
+        </Routes>
       </div>
     </div>
   )
 }
 
-export default Sidebar
+export default Sidebar;

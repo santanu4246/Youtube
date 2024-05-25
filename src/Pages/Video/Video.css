@@ -1,0 +1,81 @@
+.videoContainer {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    height: 100vh;
+}
+
+.mainvideo {
+    flex: 2;
+}
+
+.mainvideo iframe {
+    border-radius: 20px;
+    width: 1280px;
+    height: 725px;
+}
+
+.suggestion {
+    flex: 1;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1rem;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.suggestion::-webkit-scrollbar {
+    width: 10px;
+}
+
+.suggestion::-webkit-scrollbar-track {
+    background: #0F0F0F;
+}
+
+
+.suggestion::-webkit-scrollbar-thumb {
+    background: #cecdcd;
+    height: 200px;
+}
+
+.suggestion::-webkit-scrollbar-thumb:hover {
+    background: #7b7b7b;
+}
+
+.suggestionItem {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 0 1rem;
+    gap: 10px;
+    cursor: pointer;
+    padding: 0 1rem;
+}
+
+.Card {
+    width: 167px;
+    height: 94px;
+    border-radius: 15px;
+}
+
+.Card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.suggestion h4 {
+    font-size: 1rem;
+}
+
+.suggestion p {
+    font-size: .8rem;
+    color: #9c9898;
+    margin-left: 0;
+}

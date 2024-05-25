@@ -14,9 +14,10 @@ import { FaArrowLeft } from "react-icons/fa";
 const Navbar = ({ setSidebar }) => {
   const [query, setQuery] = useState('');
   const [mininav, setMininav] = useState(true);
-
+  const [Query, SetQuery] = useState('');
   useEffect(() => {
     const cancelIcon = document.querySelector('.cancelIcon');
+   
     if (query.trim()) {
       cancelIcon.style.display = 'block';
     } else {
@@ -24,6 +25,16 @@ const Navbar = ({ setSidebar }) => {
     }
   }, [query]);
 
+  useEffect(()=>{
+    const cancelicon = document.querySelector('.cancelicon');
+    if(Query.trim())
+      {
+        cancelicon.style.display = 'block';
+      }
+      else{
+        cancelicon.style.display = 'none';
+      }
+  })
   useEffect(() => {
     if (mininav) {
       handleNav();
@@ -41,9 +52,15 @@ const Navbar = ({ setSidebar }) => {
   const handleInputChange = (e) => {
     setQuery(e.target.value);
   };
+  const HandleInputChange = (e) => {
+    SetQuery(e.target.value);
+  };
 
   const clearSearch = () => {
     setQuery('');
+  };
+  const ClearSearch = () => {
+    SetQuery('');
   };
 
   const handleNav = () => {
@@ -88,8 +105,9 @@ const Navbar = ({ setSidebar }) => {
       <div className="hiddenSearch">
         <FaArrowLeft className='arrow' onClick={() => setMininav(prev => !prev)} />
         <div className="Wrapper-smallSearchbar">
+        <MdCancel className='cancelicon' onClick={ClearSearch} />
           <div className="middle">
-            <input type="text" placeholder='Search' />
+            <input type="text" value={Query} onChange={HandleInputChange} placeholder='Search' />
             <IoSearchOutline className='hiddenSearch-SearchIcon' />
           </div>
         </div>

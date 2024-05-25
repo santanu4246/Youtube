@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import data from "../API/data.json"
 import './Feed.css'
 import { GetVideosBySearch } from '../API/GetVideosBySearch';
+import { Link } from 'react-router-dom';
 const API = "";
 console.log(API);
-const Feed = ({ Sidebar }) => {
+const Feed = () => {
   const [cardList, setCardList] = useState([]);
 
   useEffect(() => {
@@ -55,23 +56,21 @@ const Feed = ({ Sidebar }) => {
   return (
     <div className='card-main'>
       <div className="cards">
-        {
-          data ? cardList.map((item, index) => {
-            console.log(item);
-            return <div className="card">
+        {data ? cardList.map((item, index) => (
+          <Link key={index} to={`/video/${item.id.videoId}`}>
+            <div className="card">
               <img src={item.snippet.thumbnails.high.url} alt="" />
               <div className="video-bottom">
                 <p>{item.snippet.title}</p>
-                <p>{item.snippet.channelTitle} </p>
+                <p>{item.snippet.channelTitle}</p>
               </div>
               <div className="div">
-              <p>{formatNumber(item.statistics.viewCount)}</p>
-              <p>{UploadTime(item.snippet.publishedAt)}</p>
+                <p>{formatNumber(item.statistics.viewCount)}</p>
+                <p>{UploadTime(item.snippet.publishedAt)}</p>
               </div>
-
             </div>
-          }) : ""
-        }
+          </Link>
+        )) : ""}
       </div>
     </div>
   )

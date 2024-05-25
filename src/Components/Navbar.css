@@ -12,7 +12,7 @@ nav {
     background-color: #0f0f0f;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 100;
     overflow-x: hidden;
 }
 
@@ -205,4 +205,12 @@ nav {
     .SmallSearchIcon{
         display: inline;
     }
+}
+.Wrapper-smallSearchbar{
+    position: relative;
+}
+.cancelicon{
+    position: absolute;
+    top: 14px;
+    right: 80px;
 }

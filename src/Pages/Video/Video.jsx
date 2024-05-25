@@ -1,8 +1,97 @@
-import React from 'react'
-import './Video.css'
+import React, { useEffect, useState } from 'react';
+import './Video.css';
+import { Link, useParams } from 'react-router-dom';
+import data from '../../API/data.json';
 const Video = () => {
+  const { id } = useParams();
+  const [suggestionVideo, setSuggestionVideo] = useState([]);
+
+  useEffect(() => {
+    setSuggestionVideo(data);
+  }, []);
+
+  function timeAgo(timestamp) {
+    const currentDate = new Date();
+    const pastDate = new Date(timestamp);
+    const timeDifference = currentDate.getTime() - pastDate.getTime();
+
+    const seconds = Math.floor(timeDifference / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+    const weeks = Math.floor(days / 7);
+    const months = Math.floor(days / 30);
+    const years = Math.floor(days / 365);
+
+    if (years > 0) {
+      return years === 1 ? "1 year ago" : years + " years ago";
+    } else if (months > 0) {
+      return months === 1 ? "1 month ago" : months + " months ago";
+    } else if (weeks > 0) {
+      return weeks === 1 ? "1 week ago" : weeks + " weeks ago";
+    } else if (days > 0) {
+      return days === 1 ? "1 day ago" : days + " days ago";
+    } else if (hours > 0) {
+      return hours === 1 ? "1 hour ago" : hours + " hours ago";
+    } else if (minutes > 0) {
+      return minutes === 1 ? "1 minute ago" : minutes + " minutes ago";
+    } else {
+      return "Just now";
+    }
+  }
+
+  function formatNumber(num) {
+    if (num >= 1000000000) {
+      return (num / 1000000000).toFixed(1) + "B";
+    }
+    if (num >= 1000000) {
+      return (num / 1000000).toFixed(1) + "M";
+    }
+    if (num >= 1000) {
+      return (num / 1000).toFixed(1) + "K";
+    }
+    return num;
+  }
+
   return (
-    <div>Video</div>
-  )
-}
+    <div className="videoContainer">
+      <div className="mainvideo">
+        <iframe
+          src={`https://www.youtube.com/embed/${id}?autoplay=1&si=YVcIVRbUK4pJR_iQ`}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen>
+        </iframe>
+        <div className="iframedetails">
+          {suggestionVideo.map((item,index)=>{
+            
+          })}
+        </div>
+      </div>
+      <div className="suggestion">
+        {suggestionVideo.map((item, index) => (
+           <Link key={index} to={`/video/${item.id.videoId}`}>
+          <div className="suggestionItem" key={index}>
+            <div className="Card">
+              <img src={item.snippet.thumbnails.high.url} alt="thumbnail" />
+            </div>
+            <div className="details">
+              <h4>{item.snippet.title.slice(0,55)}</h4> 
+              <div>
+                <p>{item.snippet.channelTitle}</p>
+                <p>
+                  {formatNumber(item.statistics.viewCount)} • {timeAgo(item.snippet.publishedAt)}
+                </p>
+              </div>
+            </div>
+          </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export default Video;
