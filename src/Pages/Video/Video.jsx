@@ -2,9 +2,28 @@ import React, { useEffect, useState } from 'react';
 import './Video.css';
 import { Link, useParams } from 'react-router-dom';
 import data from '../../API/data.json';
+import APIKEY from '../../API/apikey';
+import { BiLike } from "react-icons/bi";
+import { BiDislike } from "react-icons/bi";
+import { IoIosShareAlt } from "react-icons/io";
+import { FaArrowDown } from "react-icons/fa";
+import { HiOutlineDotsHorizontal } from "react-icons/hi";
 const Video = () => {
   const { id } = useParams();
   const [suggestionVideo, setSuggestionVideo] = useState([]);
+  const [apiData, setApiData] = useState(null);
+
+  const fetchVideoData = async () => {
+    const videoUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${id}&key=${APIKEY}`;
+
+    await fetch(videoUrl)
+      .then(res => res.json())
+      .then(data => setApiData(data.items[0]));
+  };
+
+  useEffect(() => {
+    fetchVideoData();
+  }, [id]);
 
   useEffect(() => {
     setSuggestionVideo(data);
@@ -65,28 +84,57 @@ const Video = () => {
           allowFullScreen>
         </iframe>
         <div className="iframedetails">
-          {suggestionVideo.map((item,index)=>{
-            
-          })}
+          {apiData &&
+            <>
+              <h3>{apiData.snippet.title}</h3>
+              <div className="othervideo">
+                <div className="name-subscribe">
+                  <h4>{apiData.snippet.channelTitle}</h4>
+                  <p>Subscribe</p>
+                </div>
+                <div className="tools">
+                  <div className="like-dislike">
+                    <div className="Like-container">
+                      <p className='like-hover'><BiLike className='like' /></p>
+                      <p>{formatNumber(apiData.statistics.likeCount)}</p>
+                    </div>
+                    <div className='line-p'></div>
+                    <BiDislike className='like dislike' />
+                  </div>
+                  <div className="share align">
+                  <span><IoIosShareAlt className='iconss'/></span>
+                  <span>Share</span>
+                  </div>
+                  <div className="download align">
+                  <span><FaArrowDown className='iconss'/></span>
+                  <span>Download</span>
+                  </div>
+                  <div className="more align">
+                 <span> <HiOutlineDotsHorizontal className='iconss'/></span>
+                 </div>
+                </div>
+              </div>
+            </>
+          }
         </div>
       </div>
       <div className="suggestion">
         {suggestionVideo.map((item, index) => (
-           <Link key={index} to={`/video/${item.id.videoId}`}>
-          <div className="suggestionItem" key={index}>
-            <div className="Card">
-              <img src={item.snippet.thumbnails.high.url} alt="thumbnail" />
-            </div>
-            <div className="details">
-              <h4>{item.snippet.title.slice(0,55)}</h4> 
-              <div>
-                <p>{item.snippet.channelTitle}</p>
-                <p>
-                  {formatNumber(item.statistics.viewCount)} • {timeAgo(item.snippet.publishedAt)}
-                </p>
+          <Link key={index} to={`/video/${item.id.videoId}`}>
+            <div className="suggestionItem" key={index}>
+              <div className="Card">
+                <img src={item.snippet.thumbnails.high.url} alt="thumbnail" />
+              </div>
+              <div className="details">
+                <h4>{item.snippet.title.slice(0, 55)}</h4>
+                <div>
+                  <p>{item.snippet.channelTitle}</p>
+                  <p>
+                    {formatNumber(item.statistics.viewCount)} • {timeAgo(item.snippet.publishedAt)}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
           </Link>
         ))}
       </div>

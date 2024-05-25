@@ -79,3 +79,91 @@
     color: #9c9898;
     margin-left: 0;
 }
+
+.othervideo {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.name-subscribe {
+    display: flex;
+    align-items: center;
+}
+
+.name-subscribe p {
+    padding: 0.5rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+    color: #0F0F0F;
+    font-size: small;
+}
+
+.tools {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.align {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background-color: #272727;
+    border-radius: 25px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.share {
+    height: 40px;
+    width: 100px;
+}
+
+.download {
+    height: 40px;
+    width: 110px;
+}
+
+.more {
+    height: 30px;
+    width: 50px;
+}
+
+.like-dislike {
+    display: flex;
+    width: 130px;
+    height: 40px;
+    justify-content: space-around;
+    background-color: #272727;
+    align-items: center;
+    border-radius: 25px;
+}
+
+.like {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.Like-container {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.Like-container p {
+    margin: 0;
+}
+
+.line-p {
+    height: 75%;
+    background-color: rgb(86, 86, 86);
+    width: 1px;
+}
+
+.iconss {
+    font-size: 16px;
+}
+@media (width:1000px) {
+    
+}
