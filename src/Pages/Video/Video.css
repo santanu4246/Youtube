@@ -1,8 +1,13 @@
-.videoContainer {
+.videoContainer{
+    width: 100%;
+    height: 100vh;
+  
+}
+.VideoContainer {
     display: flex;
     gap: 2rem;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow-y: auto;
 }
 
@@ -21,10 +26,12 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    height: 100%;
+    min-height: 100%; /* Adjust this to control the maximum height */
     overflow-y: auto;
     scroll-behavior: smooth;
+    
 }
+
 
 .suggestion::-webkit-scrollbar {
     width: 10px;
@@ -168,8 +175,33 @@
     font-weight: bold;
     font-size: 0.9rem;
 }
+.image{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+ 
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.subsciber{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+.subsciber span{
+    font-size: 0.9rem;
+    color: #9c9898;
+}
+.image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
 @media (max-width: 1836px) {
-    .videoContainer {
+    .VideoContainer {
         flex-direction: column;
         height: 100vh; /* Adjust height to full viewport */
         overflow-y: auto;
@@ -202,5 +234,11 @@
     }
     .more{
         display: none;
+    }
+    .Subscribe-btn{
+        margin-right: 5px;
+    }
+    .name-subscribe p{
+        justify-content: flex-start;
     }
 }
