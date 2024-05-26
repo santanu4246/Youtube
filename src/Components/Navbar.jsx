@@ -42,11 +42,11 @@ const Navbar = ({ setSidebar }) => {
       handleMiniNav();
     }
 
-    window.addEventListener('resize', handleNav);
+    // window.addEventListener('resize', mininav);
 
-    return () => {
-      window.removeEventListener('resize', handleNav);
-    };
+    // return () => {
+    //   window.removeEventListener('resize', mininav);
+    // };
   }, [mininav]);
 
   const handleInputChange = (e) => {

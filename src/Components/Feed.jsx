@@ -19,7 +19,6 @@ const Feed = () => {
     }
   }
 
-
   function formatNumber(num) {
     if (num >= 1000000000) {
       return (num / 1000000000).toFixed(1) + "B";
@@ -36,7 +35,7 @@ const Feed = () => {
     const currentDate = new Date();
     const pastDate = new Date(timestamp);
     const timeDifference = currentDate.getTime() - pastDate.getTime();
-  
+
     const seconds = Math.floor(timeDifference / 1000);
     const minutes = Math.floor(seconds / 60);
     const hours = Math.floor(minutes / 60);
@@ -44,7 +43,7 @@ const Feed = () => {
     const weeks = Math.floor(days / 7);
     const months = Math.floor(days / 30);
     const years = Math.floor(days / 365);
-  
+
     if (years > 0) {
       return years === 1 ? "1 year ago" : years + " years ago";
     } else if (months > 0) {
