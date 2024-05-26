@@ -9,6 +9,13 @@ import { FaArrowDown } from "react-icons/fa";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 
 const Video = () => {
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
   const { id } = useParams();
   const [suggestionVideo, setSuggestionVideo] = useState([]);
   const [apiData, setApiData] = useState(null);
@@ -37,8 +44,8 @@ const Video = () => {
       console.error('Error fetching channel details:', error);
     }
   };
-
   useEffect(() => {
+    shuffleArray(data)
     setSuggestionVideo(data);
   }, []);
 
@@ -50,7 +57,6 @@ const Video = () => {
     if (apiData) {
       fetchChannelDetails(apiData.snippet.channelId);
     }
-    console.log(apiData);
   }, [apiData]);
 
   useEffect(() => {

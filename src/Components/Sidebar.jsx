@@ -36,6 +36,7 @@ import send from "../assets/send.svg";
 import './Sidebar.css'
 import Feed from './Feed';
 import Video from '../Pages/Video/Video';
+import SearchContent from "./SerachContent"
 const Sidebar = ({ Sidebar }) => {
 
   useEffect(() => {
@@ -254,6 +255,8 @@ const Sidebar = ({ Sidebar }) => {
             element={<Feed />}
           />
           <Route path="/video/:id" element={<Video />} />
+          <Route path="/Search/:query" element={<SearchContent />} />
+
         </Routes>
       </div>
     </div>

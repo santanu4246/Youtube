@@ -92,7 +92,9 @@ const Navbar = ({ setSidebar }) => {
             onChange={handleInputChange}
           />
           <MdCancel className='cancelIcon' onClick={clearSearch} />
-          <IoSearchOutline className='search-icon' />
+          <Link className="search-icon"to={`/search/${query}`}>
+          <IoSearchOutline className='' />
+          </Link>
         </div>
         <FaMicrophone className='microphone' />
       </div>
@@ -108,7 +110,9 @@ const Navbar = ({ setSidebar }) => {
         <MdCancel className='cancelicon' onClick={ClearSearch} />
           <div className="middle">
             <input type="text" value={Query} onChange={HandleInputChange} placeholder='Search' />
+            <Link to={`/search/${Query}`}>
             <IoSearchOutline className='hiddenSearch-SearchIcon' />
+            </Link>
           </div>
         </div>
         <FaMicrophone className='hiddenSearch-microphoneIcon' />

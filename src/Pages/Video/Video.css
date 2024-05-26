@@ -241,4 +241,7 @@
     .name-subscribe p{
         justify-content: flex-start;
     }
+    .like-dislike{
+        width: 105px;
+    }
 }

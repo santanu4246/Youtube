@@ -70,10 +70,12 @@ nav {
 
 .search-icon {
     width: 10%;
-    font-size: 1.5rem;
+    font-size: 1.5em;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
 .nav-right {
     gap: 1.5rem;
     font-size: 24px;
@@ -212,5 +214,5 @@ nav {
 .cancelicon{
     position: absolute;
     top: 14px;
-    right: 80px;
+    right: 85px;
 }
